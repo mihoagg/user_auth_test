@@ -207,7 +207,7 @@ async def get_me(current_user: str = Depends(get_current_user)):
             "id": current_user
         })
         if not account:
-            raise HTTPException(status_code=404, detail="User not found")
+            raise HTTPException(status_code=404, detail="User not found") #TODO: fix
     except Exception:
         raise HTTPException(status_code=500, detail="Database error")
     return UserOut(
@@ -252,7 +252,7 @@ async def create_refresh_token(current_user: str):
             "id": current_user
         })
         if not account:
-            raise HTTPException(status_code=404, detail="User not found")
+            raise HTTPException(status_code=404, detail="User not found") #TOdO: fix
     except Exception:
         raise HTTPException(status_code=500, detail="Database error")
     user_id = account.get("id")
